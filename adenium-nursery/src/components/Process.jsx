@@ -1,5 +1,9 @@
 import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './Process.css'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const steps = [
   {
@@ -40,33 +44,64 @@ const steps = [
 ]
 
 export default function Process() {
-  const containerRef = useRef(null)
+  const sectionRef = useRef(null)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view')
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
+    const ctx = gsap.context(() => {
+      // Header animation
+      gsap.fromTo('.process-header',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1, y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.process-header',
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        }
+      )
 
-    const cards = containerRef.current?.querySelectorAll('.process-step')
-    cards?.forEach((card, i) => {
-      card.style.transitionDelay = `${i * 0.12}s`
-      observer.observe(card)
-    })
+      // Steps stagger animation
+      gsap.fromTo('.process-step',
+        { opacity: 0, y: 35 },
+        {
+          opacity: 1, y: 0,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.process-steps',
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        }
+      )
 
-    return () => observer.disconnect()
+      // Quote visual
+      gsap.fromTo('.process-visual',
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1, y: 0,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.process-visual',
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        }
+      )
+    }, sectionRef)
+
+    return () => ctx.revert()
   }, [])
 
   return (
-    <section id="process" className="process">
+    <section id="process" className="process" ref={sectionRef}>
       <div className="process-inner">
-        <div className="process-header">
+        <div className="process-header" style={{ opacity: 0 }}>
           <div className="section-eyebrow">How It Works</div>
           <h2 className="process-headline">
             From Our Nursery<br />
@@ -74,9 +109,9 @@ export default function Process() {
           </h2>
         </div>
 
-        <div ref={containerRef} className="process-steps">
-          {steps.map((step, i) => (
-            <div key={step.num} className="process-step">
+        <div className="process-steps">
+          {steps.map((step) => (
+            <div key={step.num} className="process-step" style={{ opacity: 0 }}>
               <div className="step-connector">
                 <div className="step-line" style={{ background: `linear-gradient(to bottom, ${step.color}, transparent)` }} />
               </div>
@@ -92,7 +127,7 @@ export default function Process() {
         </div>
       </div>
 
-      <div className="process-visual">
+      <div className="process-visual" style={{ opacity: 0 }}>
         <div className="pv-content">
           <div className="pv-quote">
             "We pour the same devotion into every shipment as we do into cultivating the plants themselves."

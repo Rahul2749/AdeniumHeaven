@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './Collection.css'
 
 import rubyRedImg from '../assets/ruby_red.png'
@@ -111,29 +113,35 @@ const tagColors = {
   terracotta: '#C85A32',
 }
 
+gsap.registerPlugin(ScrollTrigger)
+
 function PlantCard({ plant, index }) {
   const ref = useRef(null)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            if (ref.current) ref.current.classList.add('in-view')
-          }, index * 100)
-          observer.unobserve(ref.current)
+    const ctx = gsap.context(() => {
+      gsap.fromTo(ref.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1, y: 0,
+          duration: 0.8,
+          delay: index * 0.08,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: ref.current,
+            start: 'top 88%',
+            toggleActions: 'play none none none',
+          },
         }
-      },
-      { threshold: 0.1 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
+      )
+    })
+    return () => ctx.revert()
   }, [index])
 
   return (
-    <div ref={ref} className="plant-card reveal-card">
+    <div ref={ref} className="plant-card" style={{ opacity: 0 }}>
       <div className="card-visual" style={{ background: plant.bg }}>
-        <img src={plant.image} alt={plant.name} className="plant-image" />
+        <img src={plant.image} alt={plant.name} className="plant-image" loading="lazy" decoding="async" />
         <div className="card-tag" style={{ background: tagColors[plant.tagColor] }}>
           {plant.tag}
         </div>
@@ -159,25 +167,30 @@ function PlantCard({ plant, index }) {
 }
 
 export default function Collection() {
-  const titleRef = useRef(null)
+  const sectionRef = useRef(null)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view')
-          observer.unobserve(entry.target)
+    const ctx = gsap.context(() => {
+      gsap.fromTo('.collection-header',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1, y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.collection-header',
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
         }
-      },
-      { threshold: 0.2 }
-    )
-    if (titleRef.current) observer.observe(titleRef.current)
-    return () => observer.disconnect()
+      )
+    }, sectionRef)
+    return () => ctx.revert()
   }, [])
 
   return (
-    <section id="collection" className="collection">
-      <div className="collection-header reveal-section" ref={titleRef}>
+    <section id="collection" className="collection" ref={sectionRef}>
+      <div className="collection-header" style={{ opacity: 0 }}>
         <div className="section-eyebrow">The Collection</div>
         <h2 className="collection-headline">
           Every Plant,<br />

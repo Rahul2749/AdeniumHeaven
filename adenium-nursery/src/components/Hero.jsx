@@ -1,55 +1,103 @@
 import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './Hero.css'
 import heroImage from '../assets/light_pink_multipetal_hero.png'
 
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Hero() {
+  const heroRef = useRef(null)
   const headlineRef = useRef(null)
   const subRef = useRef(null)
   const badgeRef = useRef(null)
   const imageRef = useRef(null)
   const overlayRef = useRef(null)
+  const actionsRef = useRef(null)
 
   useEffect(() => {
-    const els = [badgeRef.current, headlineRef.current, subRef.current]
-    els.forEach((el, i) => {
-      if (!el) return
-      el.style.opacity = '0'
-      el.style.transform = 'translateY(40px)'
-      setTimeout(() => {
-        el.style.transition = 'opacity 0.9s ease, transform 0.9s ease'
-        el.style.opacity = '1'
-        el.style.transform = 'translateY(0)'
-      }, 300 + i * 180)
-    })
+    const ctx = gsap.context(() => {
+      // Entrance animations - staggered fade-in
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
-    if (imageRef.current) {
-      imageRef.current.style.transform = 'scale(1.12)'
-      imageRef.current.style.transition = 'transform 1.6s cubic-bezier(0.16, 1, 0.3, 1)'
-      setTimeout(() => {
-        imageRef.current.style.transform = 'scale(1)'
-      }, 100)
-    }
+      tl.fromTo(imageRef.current,
+        { scale: 1.15 },
+        { scale: 1, duration: 1.8, ease: 'power2.out' }
+      )
+      .fromTo(badgeRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        0.3
+      )
+      .fromTo(headlineRef.current?.querySelectorAll('.line'),
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.9, stagger: 0.12 },
+        0.45
+      )
+      .fromTo(subRef.current,
+        { opacity: 0, y: 25 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        0.8
+      )
+      .fromTo(actionsRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.7 },
+        1.0
+      )
 
-    const onScroll = () => {
-      const scrollY = window.scrollY
-      if (imageRef.current) {
-        imageRef.current.style.transform = `scale(1) translateY(${scrollY * 0.25}px)`
-      }
-      if (overlayRef.current) {
-        overlayRef.current.style.opacity = Math.min(scrollY / 600, 0.7)
-      }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+      // Parallax on scroll - GPU accelerated via GSAP
+      gsap.to(imageRef.current, {
+        yPercent: 18,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 0.6,
+        },
+      })
+
+      // Overlay darkens on scroll
+      gsap.to(overlayRef.current, {
+        opacity: 0.65,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 0.4,
+        },
+      })
+
+      // Content fades up and out on scroll
+      gsap.to('.hero-content', {
+        y: -60,
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: '20% top',
+          end: '60% top',
+          scrub: 0.5,
+        },
+      })
+    }, heroRef)
+
+    return () => ctx.revert()
   }, [])
 
   return (
-    <section className="hero">
+    <section className="hero" ref={heroRef}>
       <div className="hero-bg">
         <div ref={imageRef} className="hero-image-wrap">
           <div className="hero-image-placeholder">
-            <img src={heroImage} alt="Adenium Desert Rose" style={{ width: '100%', height: '100%', objectFit: 'cover', mixBlendMode: 'lighten', opacity: 0.9 }} />
+            <img
+              src={heroImage}
+              alt="Adenium Desert Rose"
+              loading="eager"
+              decoding="async"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.9 }}
+            />
           </div>
         </div>
         <div ref={overlayRef} className="hero-overlay" />
@@ -57,24 +105,24 @@ export default function Hero() {
       </div>
 
       <div className="hero-content">
-        <div ref={badgeRef} className="hero-badge">
+        <div ref={badgeRef} className="hero-badge" style={{ opacity: 0 }}>
           <span className="badge-dot" />
           Est. 2019 · Nagpur, India
           <span className="badge-dot" />
         </div>
 
         <h1 ref={headlineRef} className="hero-headline">
-          <span className="line-wrap"><span className="line">Living Art</span></span>
-          <span className="line-wrap italic"><span className="line">From Desert</span></span>
-          <span className="line-wrap"><span className="line">to Doorstep</span></span>
+          <span className="line-wrap"><span className="line" style={{ opacity: 0 }}>Living Art</span></span>
+          <span className="line-wrap italic"><span className="line" style={{ opacity: 0 }}>From Desert</span></span>
+          <span className="line-wrap"><span className="line" style={{ opacity: 0 }}>to Doorstep</span></span>
         </h1>
 
-        <p ref={subRef} className="hero-sub">
+        <p ref={subRef} className="hero-sub" style={{ opacity: 0 }}>
           Hand-cultivated Adenium specimens — where ceramic artistry meets<br />
           the ancient beauty of desert rose.
         </p>
 
-        <div className="hero-actions">
+        <div ref={actionsRef} className="hero-actions" style={{ opacity: 0 }}>
           <button
             className="btn-primary"
             onClick={() => document.getElementById('collection').scrollIntoView({ behavior: 'smooth' })}
@@ -92,7 +140,7 @@ export default function Hero() {
       </div>
 
       <div className="hero-scroll-indicator">
-        <div className="scroll-flower" style={{ color: 'var(--adenium-pink)', fontSize: '1rem', animation: 'scrollPulse 2s ease-in-out infinite' }}>✿</div>
+        <div className="scroll-flower">✿</div>
         <div className="scroll-line" />
         <span>Scroll</span>
       </div>

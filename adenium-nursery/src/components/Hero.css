@@ -131,8 +131,9 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+  background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
   opacity: 0;
+  will-change: opacity;
 }
 
 .hero-noise {
@@ -269,28 +270,40 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   z-index: 2;
+}
+
+.scroll-flower {
+  color: var(--adenium-pink);
+  font-size: 1rem;
+  animation: floatFlower 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(216, 27, 96, 0.4));
+}
+
+@keyframes floatFlower {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+  50% { transform: translateY(-8px) rotate(15deg); opacity: 1; }
 }
 
 .scroll-line {
   width: 1px;
-  height: 40px;
+  height: 36px;
   background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
-  animation: scrollPulse 2s ease-in-out infinite;
+  animation: scrollPulse 2.5s ease-in-out infinite;
 }
 
 @keyframes scrollPulse {
   0%, 100% { opacity: 0.3; transform: scaleY(1); }
-  50% { opacity: 1; transform: scaleY(1.2); }
+  50% { opacity: 0.8; transform: scaleY(1.15); }
 }
 
 .hero-scroll-indicator span {
   font-family: var(--font-body);
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.35);
 }
 
 /* Stats */
