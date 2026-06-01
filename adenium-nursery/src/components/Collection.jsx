@@ -3,7 +3,8 @@ import './Collection.css'
 
 import rubyRedImg from '../assets/ruby_red.png'
 import desertSnowImg from '../assets/desert_snow.png'
-import thaiMultiImg from '../assets/thai_multi.png'
+import thaiMultiImg from '../assets/realistic_thai_multi.png'
+import giantCaudexImg from '../assets/giant_caudex_bonsai.png'
 import cobaltSetImg from '../assets/cobalt_set.png'
 import bonsaiImg from '../assets/bonsai.png'
 import goldenSunsetImg from '../assets/golden_sunset.png'
@@ -86,6 +87,19 @@ const plants = [
     bg: '#201000',
     accent: '#D4AF37',
     image: goldenSunsetImg,
+  },
+  {
+    id: 7,
+    name: 'Grand Arabicum Specimen',
+    species: 'Adenium arabicum',
+    price: '₹8,500',
+    tag: 'Masterpiece',
+    tagColor: 'pine',
+    desc: 'An awe-inspiring specimen with a massive, bulbous caudex and numerous branching arms. Truly a collector\'s dream.',
+    petals: ['#D81B60', '#A1A89D', '#8C9A8E'],
+    bg: '#121A15',
+    accent: '#5E7153',
+    image: giantCaudexImg,
   },
 ]
 
