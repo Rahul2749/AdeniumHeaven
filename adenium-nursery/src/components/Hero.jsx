@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import './Hero.css'
-import heroImage from '../assets/burgundy_hero.png'
+import heroImage from '../assets/bright_pink_hero.png'
 
 
 export default function Hero() {
