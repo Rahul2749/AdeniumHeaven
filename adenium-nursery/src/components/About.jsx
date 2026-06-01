@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react'
 import './About.css'
+import pinkAdenium1 from '../assets/pink_adenium_1.png'
+import pinkAdenium2 from '../assets/pink_adenium_2.png'
 
 export default function About() {
   const sectionRef = useRef(null)
@@ -31,32 +33,14 @@ export default function About() {
         <div ref={leftRef} className="about-left reveal-left">
           <div className="about-image-grid">
             <div className="img-card img-card--large">
-              <div className="img-placeholder main-plant">
-                <div className="plant-icon-lg">
-                  <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
-                    <ellipse cx="100" cy="200" rx="30" ry="60" fill="#4A3520"/>
-                    <ellipse cx="100" cy="220" rx="55" ry="18" fill="rgba(196,164,132,0.3)"/>
-                    <ellipse cx="100" cy="140" rx="65" ry="80" fill="#3D5A2E" opacity="0.9"/>
-                    <ellipse cx="100" cy="120" rx="55" ry="70" fill="#4A7A35" opacity="0.8"/>
-                    <ellipse cx="80" cy="80" rx="42" ry="55" fill="#D81B60" opacity="0.9" transform="rotate(-15 80 80)"/>
-                    <ellipse cx="120" cy="75" rx="40" ry="52" fill="#E91E8C" opacity="0.85" transform="rotate(15 120 75)"/>
-                    <ellipse cx="100" cy="65" rx="35" ry="48" fill="#FF4081" opacity="0.8"/>
-                    <ellipse cx="78" cy="95" rx="30" ry="42" fill="#C2185B" opacity="0.7" transform="rotate(-40 78 95)"/>
-                    <ellipse cx="122" cy="90" rx="28" ry="40" fill="#AD1457" opacity="0.7" transform="rotate(40 122 90)"/>
-                    <circle cx="100" cy="72" r="18" fill="#FFD54F" opacity="0.6"/>
-                    <circle cx="100" cy="72" r="10" fill="#FFF9C4" opacity="0.8"/>
-                  </svg>
-                </div>
+              <div className="img-placeholder main-plant" style={{ background: '#F9F9F6' }}>
+                <img src={pinkAdenium1} alt="Adenium Obesum Ruby" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', padding: '10%' }} />
               </div>
               <div className="img-label">Adenium Obesum 'Ruby'</div>
             </div>
             <div className="img-card img-card--small">
               <div className="img-placeholder ceramic-pots">
-                <div className="pot-art">
-                  <div className="pot p1" />
-                  <div className="pot p2" />
-                  <div className="pot p3" />
-                </div>
+                <img src={pinkAdenium2} alt="Ceramic Collection" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', padding: '10%' }} />
               </div>
               <div className="img-label">Ceramic Collection</div>
             </div>

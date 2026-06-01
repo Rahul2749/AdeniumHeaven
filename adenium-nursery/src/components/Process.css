@@ -104,7 +104,7 @@
 /* Visual / Quote area */
 .process-visual {
   margin-top: 5rem;
-  background: var(--deep-ink);
+  background: var(--alabaster, #F9F9F6);
   border-radius: 20px;
   padding: 4rem 3rem;
   position: relative;
@@ -124,7 +124,7 @@
   font-size: 1.6rem;
   font-weight: 300;
   font-style: italic;
-  color: rgba(255,255,255,0.85);
+  color: var(--deep-ink, #0A1520);
   line-height: 1.5;
   margin-bottom: 1.2rem;
 }
@@ -134,7 +134,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: var(--charcoal, #333333);
 }
 
 .pv-decoration {
@@ -147,7 +147,7 @@
 .dec-circle {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
 .dec-circle.c1 {
@@ -186,12 +186,13 @@
   top: 50%;
   margin: -8px;
   opacity: 0.7;
+  transform: rotate(var(--r, 0deg)) translateY(-40px);
   animation: petalFloat 4s ease-in-out infinite;
 }
 
 @keyframes petalFloat {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 1; transform: rotate(var(--r, 0deg)) translateY(-45px); }
+  0%, 100% { opacity: 0.7; transform: rotate(var(--r, 0deg)) translateY(-40px); }
+  50% { opacity: 1; transform: rotate(var(--r, 0deg)) translateY(-55px); }
 }
 
 @media (max-width: 960px) {

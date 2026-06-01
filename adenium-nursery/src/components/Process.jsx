@@ -108,7 +108,7 @@ export default function Process() {
               {['#D81B60','#E91E8C','#C2185B','#D4AF37','#FF8A65'].map((c,i) => (
                 <div key={i} className="dec-petal" style={{
                   background: c,
-                  transform: `rotate(${i * 72}deg) translateY(-40px)`,
+                  '--r': `${i * 72}deg`,
                   animationDelay: `${i * 0.3}s`
                 }} />
               ))}

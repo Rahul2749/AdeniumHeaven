@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react'
 import './Hero.css'
+import heroImage from '../assets/ruby_red.png'
+
 
 export default function Hero() {
   const headlineRef = useRef(null)
@@ -46,17 +48,8 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-bg">
         <div ref={imageRef} className="hero-image-wrap">
-          <div className="hero-image-placeholder">
-            <div className="hero-plant-art">
-              <div className="plant-silhouette" />
-              <div className="petal p1" />
-              <div className="petal p2" />
-              <div className="petal p3" />
-              <div className="petal p4" />
-              <div className="petal p5" />
-              <div className="stem" />
-              <div className="roots" />
-            </div>
+          <div className="hero-image-placeholder" style={{ background: 'transparent' }}>
+            <img src={heroImage} alt="Adenium Desert Rose" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'lighten' }} />
           </div>
         </div>
         <div ref={overlayRef} className="hero-overlay" />

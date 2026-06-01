@@ -1,6 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 import './Collection.css'
 
+import rubyRedImg from '../assets/ruby_red.png'
+import desertSnowImg from '../assets/desert_snow.png'
+import thaiMultiImg from '../assets/thai_multi.png'
+import cobaltSetImg from '../assets/cobalt_set.png'
+import bonsaiImg from '../assets/bonsai.png'
+import goldenSunsetImg from '../assets/golden_sunset.png'
+
 const plants = [
   {
     id: 1,
@@ -13,6 +20,7 @@ const plants = [
     petals: ['#D81B60', '#E91E8C', '#C2185B'],
     bg: '#1A2010',
     accent: '#D81B60',
+    image: rubyRedImg,
   },
   {
     id: 2,
@@ -25,6 +33,7 @@ const plants = [
     petals: ['#F8F0F5', '#FBECF5', '#F5E6F0'],
     bg: '#1A1A2A',
     accent: '#D4AF37',
+    image: desertSnowImg,
   },
   {
     id: 3,
@@ -37,6 +46,7 @@ const plants = [
     petals: ['#FF6B35', '#D81B60', '#FFD54F'],
     bg: '#201505',
     accent: '#C85A32',
+    image: thaiMultiImg,
   },
   {
     id: 4,
@@ -49,6 +59,7 @@ const plants = [
     petals: ['#95B4A3', '#D81B60', '#5E7153'],
     bg: '#0A1520',
     accent: '#1A457B',
+    image: cobaltSetImg,
   },
   {
     id: 5,
@@ -61,6 +72,7 @@ const plants = [
     petals: ['#FF8A65', '#D81B60', '#FFCC02'],
     bg: '#1A0A0A',
     accent: '#C85A32',
+    image: bonsaiImg,
   },
   {
     id: 6,
@@ -73,6 +85,7 @@ const plants = [
     petals: ['#FF8C00', '#FF6B35', '#D4AF37'],
     bg: '#201000',
     accent: '#D4AF37',
+    image: goldenSunsetImg,
   },
 ]
 
@@ -106,16 +119,7 @@ function PlantCard({ plant, index }) {
   return (
     <div ref={ref} className="plant-card reveal-card">
       <div className="card-visual" style={{ background: plant.bg }}>
-        <div className="card-bloom">
-          {plant.petals.map((color, i) => (
-            <div
-              key={i}
-              className={`bloom-petal bp${i + 1}`}
-              style={{ background: `radial-gradient(ellipse at 40% 30%, ${color}, ${color}88)` }}
-            />
-          ))}
-          <div className="bloom-center" />
-        </div>
+        <img src={plant.image} alt={plant.name} className="plant-image" />
         <div className="card-tag" style={{ background: tagColors[plant.tagColor] }}>
           {plant.tag}
         </div>
