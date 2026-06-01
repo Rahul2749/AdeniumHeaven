@@ -52,7 +52,7 @@ export default function About() {
         </div>
 
         <div ref={rightRef} className="about-right reveal-right">
-          <div className="section-eyebrow">About the Atelier</div>
+          <div className="section-eyebrow">About Adenium Heaven</div>
           <h2 className="about-headline">
             Where Science Meets<br />
             <em>the Art of Growing</em>

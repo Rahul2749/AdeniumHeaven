@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="footer-brand">
             <div className="footer-logo">
               <span className="logo-mark">✦</span>
-              <span>Adenium <em>Atelier</em></span>
+              <span>Adenium <em>Heaven</em></span>
             </div>
             <p className="footer-tagline">
               Hand-cultivated desert roses.<br />
@@ -45,7 +45,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <div className="footer-copy">
-            © 2025 Adenium Atelier. All rights reserved.
+            © 2025 Adenium Heaven. All rights reserved.
           </div>
           <div className="footer-legal">
             <a href="#">Privacy Policy</a>

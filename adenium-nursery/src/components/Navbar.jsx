@@ -24,7 +24,7 @@ export default function Navbar() {
       <div className="navbar-inner">
         <div className="navbar-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <span className="logo-mark">✦</span>
-          <span className="logo-text">Adenium <em>Atelier</em></span>
+          <span className="logo-text">Adenium <em>Heaven</em></span>
         </div>
 
         <nav className="navbar-links">
