@@ -48,8 +48,8 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-bg">
         <div ref={imageRef} className="hero-image-wrap">
-          <div className="hero-image-placeholder" style={{ background: 'transparent' }}>
-            <img src={heroImage} alt="Adenium Desert Rose" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'lighten' }} />
+          <div className="hero-image-placeholder">
+            <img src={heroImage} alt="Adenium Desert Rose" style={{ width: '100%', height: '100%', objectFit: 'cover', mixBlendMode: 'lighten', opacity: 0.9 }} />
           </div>
         </div>
         <div ref={overlayRef} className="hero-overlay" />
@@ -92,6 +92,7 @@ export default function Hero() {
       </div>
 
       <div className="hero-scroll-indicator">
+        <div className="scroll-flower" style={{ color: 'var(--adenium-pink)', fontSize: '1rem', animation: 'scrollPulse 2s ease-in-out infinite' }}>✿</div>
         <div className="scroll-line" />
         <span>Scroll</span>
       </div>

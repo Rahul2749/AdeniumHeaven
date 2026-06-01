@@ -5,9 +5,7 @@
   right: 0;
   z-index: 100;
   padding: 1.4rem 3rem;
-  background: rgba(249, 249, 246, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: transparent;
   transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -49,8 +47,13 @@
   font-family: var(--font-display);
   font-size: 1.4rem;
   font-weight: 500;
-  color: var(--deep-ink);
+  color: white;
   letter-spacing: 0.02em;
+  transition: color 0.4s ease;
+}
+
+.navbar.scrolled .logo-text {
+  color: var(--deep-ink);
 }
 
 .logo-text em {
@@ -69,13 +72,17 @@
   font-size: 0.82rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--deep-ink);
+  color: white;
   background: none;
   border: none;
   cursor: pointer;
   position: relative;
   padding: 0.3rem 0;
   transition: color 0.3s ease;
+}
+
+.navbar.scrolled .nav-link {
+  color: var(--deep-ink);
 }
 
 .nav-link::after {
@@ -102,17 +109,23 @@
   font-size: 0.78rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: white;
-  background: var(--deep-ink);
+  color: var(--deep-ink);
+  background: white;
   border: none;
   padding: 0.65rem 1.6rem;
   border-radius: 100px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar.scrolled .nav-cta {
+  color: white;
+  background: var(--deep-ink);
 }
 
 .nav-cta:hover {
   background: var(--adenium-pink);
+  color: white;
   transform: translateY(-1px);
 }
 
@@ -132,8 +145,12 @@
   display: block;
   width: 24px;
   height: 2px;
+  background: white;
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.4s ease;
+}
+
+.navbar.scrolled .hamburger span {
   background: var(--deep-ink);
-  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .hamburger.open span:nth-child(1) {

@@ -45,7 +45,7 @@ export default function Cursor() {
 
   return (
     <>
-      <div ref={dotRef} className="cursor-dot" />
+      <div ref={dotRef} className="cursor-dot">✿</div>
       <div ref={ringRef} className="cursor-ring" />
     </>
   )
