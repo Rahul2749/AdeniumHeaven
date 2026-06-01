@@ -1,0 +1,250 @@
+.cta-section {
+  padding: 7rem 3rem;
+}
+
+.cta-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--deep-ink), #2A1520);
+  border-radius: 24px;
+  padding: 5rem 4rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decoration */
+.cta-decoration {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.cta-flower {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cta-petal {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--adenium-pink);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  margin: -10px;
+  opacity: 0.6;
+  animation: ctaPetalPulse 3s ease-in-out infinite;
+}
+
+@keyframes ctaPetalPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.cta-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, var(--gold), #C49B2A);
+  border-radius: 50%;
+}
+
+/* Content */
+.cta-content {
+  text-align: left;
+}
+
+.cta-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.cta-headline em {
+  font-style: italic;
+  color: var(--adenium-pink);
+}
+
+.cta-body {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 460px;
+}
+
+/* Form */
+.cta-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.cta-input {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  padding: 0.8rem 1.2rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 100px;
+  color: white;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.cta-input::placeholder {
+  color: rgba(255,255,255,0.35);
+}
+
+.cta-input:focus {
+  border-color: var(--adenium-pink);
+}
+
+.cta-submit {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: white;
+  background: var(--adenium-pink);
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-submit:hover {
+  background: #C2185B;
+  transform: translateY(-1px);
+}
+
+.success-msg {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--celadon);
+  margin-bottom: 1rem;
+}
+
+.success-icon {
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+.cta-trust {
+  display: flex;
+  gap: 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.35);
+}
+
+/* Contact side */
+.cta-contact {
+  text-align: center;
+}
+
+.contact-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 1.2rem;
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: white;
+  background: #25D366;
+  padding: 0.8rem 1.6rem;
+  border-radius: 100px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+.contact-details {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.contact-icon {
+  color: var(--adenium-pink);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 960px) {
+  .cta-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .cta-inner {
+    grid-template-columns: 1fr;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .cta-decoration {
+    margin: 0 auto;
+  }
+
+  .cta-content {
+    text-align: center;
+  }
+
+  .cta-body {
+    max-width: none;
+  }
+
+  .cta-form {
+    flex-direction: column;
+  }
+
+  .cta-trust {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

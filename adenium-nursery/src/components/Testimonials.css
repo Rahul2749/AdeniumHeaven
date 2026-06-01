@@ -1,0 +1,232 @@
+.testimonials {
+  padding: 7rem 3rem;
+}
+
+.section-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonials-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.testimonials-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.12;
+  color: var(--deep-ink);
+}
+
+.testimonials-headline em {
+  font-style: italic;
+  color: var(--adenium-pink);
+}
+
+/* Content layout */
+.testimonials-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Main testimonial */
+.testimonial-main {
+  background: white;
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+  position: relative;
+}
+
+.quote-mark {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  color: var(--adenium-pink);
+  opacity: 0.15;
+  line-height: 1;
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+}
+
+.testimonial-text {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--deep-ink);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.author-info {
+  flex: 1;
+}
+
+.author-name {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--deep-ink);
+}
+
+.author-location {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--charcoal);
+  opacity: 0.6;
+}
+
+.author-stars {
+  font-size: 0.9rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+
+/* Nav dots */
+.testimonial-nav {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--oatmeal);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.nav-dot.active {
+  transform: scale(1.3);
+}
+
+/* Side list */
+.testimonials-grid-side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.review-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.2rem;
+  background: white;
+  border: 1.5px solid var(--oatmeal);
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+.review-pill:hover {
+  transform: translateX(4px);
+}
+
+.review-pill.active {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.pill-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.pill-name {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--deep-ink);
+}
+
+.pill-plant {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  color: var(--charcoal);
+  opacity: 0.6;
+}
+
+.pill-stars {
+  margin-left: auto;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 960px) {
+  .testimonials {
+    padding: 5rem 1.5rem;
+  }
+
+  .testimonials-content {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-grid-side {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .review-pill {
+    min-width: 220px;
+    flex-shrink: 0;
+  }
+}

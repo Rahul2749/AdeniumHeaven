@@ -1,0 +1,31 @@
+.marquee-wrapper {
+  overflow: hidden;
+  background: var(--deep-ink);
+  padding: 1rem 0;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.marquee-dot {
+  font-size: 0.6rem;
+  color: var(--adenium-pink);
+}
