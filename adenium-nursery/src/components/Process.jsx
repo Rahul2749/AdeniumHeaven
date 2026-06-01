@@ -133,7 +133,7 @@ export default function Process() {
             "We pour the same devotion into every shipment as we do into cultivating the plants themselves."
           </div>
           <div className="pv-author">
-            — Adenium Heaven, Nagpur
+            — Adenium Heaven, Tumsar
           </div>
           <div className="pv-decoration">
             <div className="dec-circle c1" />

@@ -110,7 +110,7 @@ export default function About() {
             <em>the Art of Growing</em>
           </h2>
           <p className="about-body">
-            Nestled in the heart of Nagpur, our nursery is devoted to cultivating some of India's most extraordinary Adenium specimens. We believe each plant carries a unique story — from the arid deserts of Arabia to your living room window.
+            Nestled in the heart of Tumsar, our nursery is devoted to cultivating some of India's most extraordinary Adenium specimens. We believe each plant carries a unique story — from the arid deserts of Arabia to your living room window.
           </p>
           <p className="about-body">
             Every plant leaves our care with hand-selected ceramic vessels, personalised care guidance, and the promise of decades of bloom. We don't just sell plants — we begin relationships between growers and their living art.

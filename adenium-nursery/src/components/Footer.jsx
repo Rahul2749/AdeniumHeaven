@@ -12,12 +12,12 @@ export default function Footer() {
             </div>
             <p className="footer-tagline">
               Hand-cultivated desert roses.<br />
-              Nagpur, Maharashtra, India.
+              Tumsar, Maharashtra, India.
             </p>
             <div className="footer-socials">
-              {['Instagram', 'Facebook', 'YouTube', 'Pinterest'].map(s => (
-                <a key={s} href="#" className="social-link">{s.slice(0,2)}</a>
-              ))}
+              <a href="https://www.instagram.com/adeniumheaven?igsh=MWZyaXJoYmIwODBuNg==" target="_blank" rel="noopener noreferrer" className="social-link">Ig</a>
+              <a href="https://www.facebook.com/profile.php?id=100085840031712" target="_blank" rel="noopener noreferrer" className="social-link">Fb</a>
+              <a href="https://youtube.com/@adeniumheaven?si=PkakAH3qaGjS87GJ" target="_blank" rel="noopener noreferrer" className="social-link">Yt</a>
             </div>
           </div>
 
@@ -55,7 +55,7 @@ export default function Footer() {
             <a href="#">Shipping Policy</a>
           </div>
           <div className="footer-made">
-            Crafted with ✦ in Nagpur
+            Crafted with ✦ in Tumsar
           </div>
         </div>
       </div>

@@ -107,7 +107,7 @@ export default function Hero() {
       <div className="hero-content">
         <div ref={badgeRef} className="hero-badge" style={{ opacity: 0 }}>
           <span className="badge-dot" />
-          Est. 2019 · Nagpur, India
+          Est. 2020 · Tumsar, India
           <span className="badge-dot" />
         </div>
 
@@ -149,7 +149,7 @@ export default function Hero() {
         {[
           { num: '500+', label: 'Rare Varieties' },
           { num: '12K+', label: 'Happy Growers' },
-          { num: '8+', label: 'Years Cultivating' },
+          { num: '5+', label: 'Years Cultivating' },
         ].map(stat => (
           <div key={stat.label} className="stat">
             <span className="stat-num">{stat.num}</span>

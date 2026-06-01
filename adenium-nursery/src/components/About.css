@@ -266,3 +266,20 @@
     padding: 2rem 1.5rem;
   }
 }
+
+@media (max-width: 560px) {
+  .about-stat-num {
+    font-size: clamp(1.4rem, 5.5vw, 1.8rem);
+  }
+
+  .about-badge-float {
+    font-size: 0.62rem;
+    padding: 0.5rem 1rem;
+    right: -0.2rem;
+    bottom: -0.8rem;
+  }
+
+  .about-image-grid {
+    gap: 0.8rem;
+  }
+}

@@ -13,7 +13,7 @@ const items = [
   '✦',
   'Expert Care Included',
   '✦',
-  'Since 2019 · Nagpur',
+  'Since 2020 · Tumsar',
   '✦',
 ]
 
