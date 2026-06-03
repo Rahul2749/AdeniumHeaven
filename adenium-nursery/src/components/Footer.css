@@ -25,9 +25,10 @@
   margin-bottom: 1rem;
 }
 
-.footer-logo .logo-mark {
-  font-size: 1rem;
-  color: var(--adenium-pink);
+.logo-mark-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 .footer-logo span {

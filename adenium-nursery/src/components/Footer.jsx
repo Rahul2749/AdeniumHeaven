@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <div className="footer-logo">
-              <span className="logo-mark">✦</span>
+              <img src="/favicon.png" alt="Logo" className="logo-mark-img" />
               <span>Adenium <em>Heaven</em></span>
             </div>
             <p className="footer-tagline">

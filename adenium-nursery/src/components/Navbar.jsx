@@ -23,7 +23,7 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-inner">
         <div className="navbar-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <span className="logo-mark">✦</span>
+          <img src="/favicon.png" alt="Logo" className="logo-mark-img" />
           <span className="logo-text">Adenium <em>Heaven</em></span>
         </div>
 
