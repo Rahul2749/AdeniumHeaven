@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import LogoMark from './LogoMark'
 import './Navbar.css'
 
 const links = ['Collection', 'About', 'Process', 'Contact']
@@ -23,7 +24,7 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-inner">
         <div className="navbar-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <img src="/favicon.png" alt="Logo" className="logo-mark-img" />
+          <LogoMark className="logo-mark-svg" />
           <span className="logo-text">Adenium <em>Heaven</em></span>
         </div>
 

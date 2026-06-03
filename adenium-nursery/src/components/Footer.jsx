@@ -1,3 +1,4 @@
+import LogoMark from './LogoMark'
 import './Footer.css'
 
 export default function Footer() {
@@ -7,7 +8,7 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <div className="footer-logo">
-              <img src="/favicon.png" alt="Logo" className="logo-mark-img" />
+              <LogoMark className="logo-mark-svg" />
               <span>Adenium <em>Heaven</em></span>
             </div>
             <p className="footer-tagline">
