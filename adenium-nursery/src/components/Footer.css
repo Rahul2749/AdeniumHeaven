@@ -150,7 +150,7 @@
   color: rgba(255, 255, 255, 0.3);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .footer {
     padding: 3rem 1.5rem 1.5rem;
   }
