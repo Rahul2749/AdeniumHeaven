@@ -99,7 +99,7 @@ export default function Process() {
   }, [])
 
   return (
-    <section id="process" className="process" ref={sectionRef}>
+    <section id="process" className="process" ref={sectionRef} aria-label="How ordering works">
       <div className="process-inner">
         <div className="process-header" style={{ opacity: 0 }}>
           <div className="section-eyebrow">How It Works</div>

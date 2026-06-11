@@ -3,7 +3,7 @@ import './Footer.css'
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" aria-label="Site footer">
       <div className="footer-inner">
         <div className="footer-top">
           <div className="footer-brand">
@@ -43,7 +43,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="footer-nav">
+          <nav className="footer-nav" aria-label="Footer navigation">
             <div className="footer-col">
               <div className="footer-col-title">Shop</div>
               {['All Adeniums', 'Rare Varieties', 'Ceramic Sets', 'Starter Packs', 'Gift Cards'].map(l => (
@@ -62,12 +62,12 @@ export default function Footer() {
                 <a key={l} href="#" className="footer-link">{l}</a>
               ))}
             </div>
-          </div>
+          </nav>
         </div>
 
         <div className="footer-bottom">
           <div className="footer-copy">
-            © 2025 Adenium Heaven. All rights reserved.
+            © 2026 Adenium Heaven. All rights reserved.
           </div>
           <div className="footer-legal">
             <a href="#">Privacy Policy</a>

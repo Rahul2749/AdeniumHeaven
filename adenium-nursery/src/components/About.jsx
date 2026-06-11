@@ -80,19 +80,19 @@ export default function About() {
   }, [])
 
   return (
-    <section id="about" className="about" ref={sectionRef}>
+    <section id="about" className="about" ref={sectionRef} aria-label="About Adenium Heaven nursery">
       <div className="about-container">
         <div className="about-left" style={{ opacity: 0 }}>
           <div className="about-image-grid">
             <div className="img-card img-card--large">
               <div className="img-placeholder main-plant" style={{ background: '#F9F9F6' }}>
-                <img src={pinkAdenium1} alt="Adenium Obesum Ruby" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', padding: '10%' }} />
+                <img src={pinkAdenium1} alt="Adenium Obesum Ruby Red desert rose plant with vibrant crimson blooms" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', padding: '10%' }} />
               </div>
               <div className="img-label">Adenium Obesum 'Ruby'</div>
             </div>
             <div className="img-card img-card--small">
               <div className="img-placeholder ceramic-pots">
-                <img src={pinkAdenium2} alt="Ceramic Collection" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', padding: '10%' }} />
+                <img src={pinkAdenium2} alt="Hand-thrown ceramic pot collection for Adenium plants" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'contain', mixBlendMode: 'multiply', padding: '10%' }} />
               </div>
               <div className="img-label">Ceramic Collection</div>
             </div>

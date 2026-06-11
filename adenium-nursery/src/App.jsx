@@ -52,7 +52,7 @@ export default function App() {
     <>
       <Cursor />
       <Navbar />
-      <main>
+      <main id="main-content" aria-label="Main content">
         <Hero />
         <Marquee />
         <About />

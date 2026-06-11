@@ -139,9 +139,9 @@ function PlantCard({ plant, index }) {
   }, [index])
 
   return (
-    <div ref={ref} className="plant-card" style={{ opacity: 0 }}>
+    <article ref={ref} className="plant-card" style={{ opacity: 0 }} aria-label={`${plant.name} — ${plant.price}`}>
       <div className="card-visual" style={{ background: plant.bg }}>
-        <img src={plant.image} alt={plant.name} className="plant-image" loading="lazy" decoding="async" />
+        <img src={plant.image} alt={`${plant.name} — ${plant.species} desert rose plant, ${plant.desc}`} className="plant-image" loading="lazy" decoding="async" />
         <div className="card-tag" style={{ background: tagColors[plant.tagColor] }}>
           {plant.tag}
         </div>
@@ -157,12 +157,13 @@ function PlantCard({ plant, index }) {
           <button
             className="card-btn"
             style={{ '--accent': plant.accent }}
+            aria-label={`Add ${plant.name} to cart for ${plant.price}`}
           >
             Add to Cart
           </button>
         </div>
       </div>
-    </div>
+    </article>
   )
 }
 
@@ -189,7 +190,7 @@ export default function Collection() {
   }, [])
 
   return (
-    <section id="collection" className="collection" ref={sectionRef}>
+    <section id="collection" className="collection" ref={sectionRef} aria-label="Adenium plant collection">
       <div className="collection-header" style={{ opacity: 0 }}>
         <div className="section-eyebrow">The Collection</div>
         <h2 className="collection-headline">

@@ -65,7 +65,7 @@ export default function Testimonials() {
   const review = reviews[active]
 
   return (
-    <section className="testimonials section-reveal" ref={sectionRef}>
+    <section className="testimonials section-reveal" ref={sectionRef} aria-label="Customer testimonials">
       <div className="testimonials-inner">
         <div className="testimonials-header">
           <div className="section-eyebrow">Grower Stories</div>
@@ -78,7 +78,7 @@ export default function Testimonials() {
         <div className="testimonials-content">
           <div className="testimonial-main">
             <div className="quote-mark">"</div>
-            <div className="testimonial-text" key={active}>
+            <div className="testimonial-text" key={active} aria-live="polite" aria-atomic="true">
               {review.text}
             </div>
 
@@ -105,6 +105,7 @@ export default function Testimonials() {
                   className={`nav-dot ${i === active ? 'active' : ''}`}
                   style={i === active ? { background: review.color } : {}}
                   onClick={() => setActive(i)}
+                  aria-label={`Show review ${i + 1} of ${reviews.length} by ${reviews[i].name}`}
                 />
               ))}
             </div>

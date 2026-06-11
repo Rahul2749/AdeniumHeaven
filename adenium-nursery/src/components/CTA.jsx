@@ -26,7 +26,7 @@ export default function CTA() {
   }
 
   return (
-    <section id="contact" className="cta-section section-reveal" ref={ref}>
+    <section id="contact" className="cta-section section-reveal" ref={ref} aria-label="Contact and newsletter signup">
       <div className="cta-inner">
         <div className="cta-decoration">
           <div className="cta-flower">
@@ -61,16 +61,20 @@ export default function CTA() {
               Thank you! You will receive our next newsletter shortly.
             </div>
           ) : (
-            <form className="cta-form" onSubmit={handleSubmit}>
+            <form className="cta-form" onSubmit={handleSubmit} aria-label="Newsletter subscription">
+              <label htmlFor="cta-email" className="sr-only">Email address</label>
               <input
+                id="cta-email"
                 type="email"
                 placeholder="your@email.com"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 className="cta-input"
                 required
+                aria-required="true"
+                autoComplete="email"
               />
-              <button type="submit" className="cta-submit">
+              <button type="submit" className="cta-submit" aria-label="Subscribe to newsletter">
                 Subscribe
               </button>
             </form>

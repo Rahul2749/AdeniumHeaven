@@ -87,13 +87,13 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="hero" ref={heroRef}>
+    <section className="hero" ref={heroRef} aria-label="Hero — Living Art from Desert to Doorstep">
       <div className="hero-bg">
         <div ref={imageRef} className="hero-image-wrap">
           <div className="hero-image-placeholder">
             <img
               src={heroImage}
-              alt="Adenium Desert Rose"
+              alt="Beautiful light pink multi-petal Adenium desert rose flower in full bloom — Adenium Heaven nursery, Tumsar"
               loading="eager"
               decoding="async"
               style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.9 }}
@@ -126,12 +126,14 @@ export default function Hero() {
           <button
             className="btn-primary"
             onClick={() => document.getElementById('collection').scrollIntoView({ behavior: 'smooth' })}
+            aria-label="Explore our Adenium plant collection"
           >
             Explore Collection
           </button>
           <button
             className="btn-ghost"
             onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
+            aria-label="Read our story"
           >
             <span className="btn-arrow">→</span>
             Our Story
@@ -145,7 +147,7 @@ export default function Hero() {
         <span>Scroll</span>
       </div>
 
-      <div className="hero-stats">
+      <aside className="hero-stats" aria-label="Nursery statistics">
         {[
           { num: '500+', label: 'Rare Varieties' },
           { num: '12K+', label: 'Happy Growers' },
@@ -156,7 +158,7 @@ export default function Hero() {
             <span className="stat-label">{stat.label}</span>
           </div>
         ))}
-      </div>
+      </aside>
     </section>
   )
 }

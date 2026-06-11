@@ -1,0 +1,7 @@
+# Adenium Heaven - robots.txt
+User-agent: *
+Allow: /
+Disallow: /assets/
+
+# Sitemap
+Sitemap: https://adeniumheaven.in/sitemap.xml
