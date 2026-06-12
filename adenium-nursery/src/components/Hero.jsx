@@ -1,8 +1,13 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './Hero.css'
-import heroImage from '../assets/light_pink_multipetal_hero.png'
+import hero1 from '../assets/light_pink_multipetal_hero.png'
+import hero2 from '../assets/ruby_red.png'
+import hero3 from '../assets/desert_snow.png'
+import hero4 from '../assets/golden_sunset.png'
+
+const heroImages = [hero1, hero2, hero3, hero4]
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -14,6 +19,15 @@ export default function Hero() {
   const imageRef = useRef(null)
   const overlayRef = useRef(null)
   const actionsRef = useRef(null)
+  const [currentIdx, setCurrentIdx] = useState(0)
+
+  // Slideshow effect
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % heroImages.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -90,15 +104,22 @@ export default function Hero() {
     <section className="hero" ref={heroRef} aria-label="Hero — Living Art from Desert to Doorstep">
       <div className="hero-bg">
         <div ref={imageRef} className="hero-image-wrap">
-          <div className="hero-image-placeholder">
-            <img
-              src={heroImage}
-              alt="Beautiful light pink multi-petal Adenium desert rose flower in full bloom — Adenium Heaven nursery, Tumsar"
-              loading="eager"
-              decoding="async"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.9 }}
+          {heroImages.map((img, index) => (
+            <div 
+              key={index}
+              className={`hero-slide ${index === currentIdx ? 'active' : ''}`}
+              style={{
+                backgroundImage: `url(${img})`,
+                opacity: index === currentIdx ? 1 : 0,
+                transition: 'opacity 1.5s ease-in-out, transform 6s linear',
+                transform: index === currentIdx ? 'scale(1.05)' : 'scale(1)',
+                position: 'absolute',
+                inset: 0,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center 30%',
+              }}
             />
-          </div>
+          ))}
         </div>
         <div ref={overlayRef} className="hero-overlay" />
         <div className="hero-noise" />
