@@ -1,9 +1,10 @@
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: max(100vh, 750px);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: 100px;
   overflow: hidden;
 }
 
@@ -147,7 +148,7 @@
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 0 2rem;
+  padding: 0 2rem 8rem; /* added extra bottom padding */
   max-width: 860px;
   margin: 0 auto;
 }
@@ -336,7 +337,7 @@
   color: rgba(255, 255, 255, 0.45);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .hero {
     height: auto;
     min-height: 100vh;
