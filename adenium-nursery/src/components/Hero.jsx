@@ -28,24 +28,7 @@ export default function Hero() {
   const heroRef = useRef(null)
   const [currentIdx, setCurrentIdx] = useState(0)
 
-  // Advanced Mouse Tracking Light Reflection
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (!heroRef.current) return
-      
-      const { clientX, clientY } = e
-      // Using GSAP quickTo for 60fps performance without React state re-renders
-      gsap.to(heroRef.current, {
-        '--mouse-x': `${clientX}px`,
-        '--mouse-y': `${clientY}px`,
-        duration: 0.6,
-        ease: 'power2.out'
-      })
-    }
-    
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+  // Mouse tracking light reflection removed for performance.
 
   // Slideshow Logic
   useEffect(() => {
@@ -86,7 +69,6 @@ export default function Hero() {
       .to('.line', { 
         opacity: 1, 
         y: 0, 
-        filter: 'blur(0px)', 
         letterSpacing: '-0.03em', // Contraction animation
         duration: 1.4, 
         stagger: 0.2, 
@@ -103,15 +85,7 @@ export default function Hero() {
       }, "-=0.8")
 
 
-      // 2. Continuous Focus Breathing Animation
-      gsap.to('.hero-image-wrap', {
-        webkitMaskImage: 'radial-gradient(circle at center, black 25%, transparent 80%)',
-        maskImage: 'radial-gradient(circle at center, black 25%, transparent 80%)',
-        duration: 4,
-        yoyo: true,
-        repeat: -1,
-        ease: 'sine.inOut'
-      })
+      // Continuous Focus Breathing Animation removed for performance (CSS Masks are highly expensive)
 
       // 3. Advanced Scroll Storytelling
       
@@ -156,7 +130,6 @@ export default function Hero() {
         y: -150,
         opacity: 0,
         scale: 0.95,
-        filter: 'blur(10px)',
         ease: 'none',
         scrollTrigger: {
           trigger: heroRef.current,
@@ -184,24 +157,20 @@ export default function Hero() {
               style={{ backgroundImage: `url(${heroImages[currentIdx]})` }}
               initial={{ 
                 opacity: 0, 
-                filter: 'blur(20px)', // Deep cinematic blur
                 scale: 1.05 
               }}
               animate={{ 
                 opacity: 1, 
-                filter: 'blur(0px)', 
                 scale: [1.05, 1.0, 1.03, 1.0], // Organic breathing motion
                 rotateZ: [0, 0.5, -0.5, 0] // Subtle twist
               }}
               exit={{ 
                 opacity: 0, 
-                filter: 'blur(15px) contrast(1.2)', // Dissolve effect
                 scale: 1.1,
-                transition: { duration: 3, ease: 'easeInOut' }
+                transition: { duration: 1.5, ease: 'easeInOut' }
               }}
               transition={{
-                opacity: { duration: 3, ease: 'easeInOut' },
-                filter: { duration: 3, ease: 'easeInOut' },
+                opacity: { duration: 1.5, ease: 'easeInOut' },
                 scale: { duration: 25, ease: 'easeInOut', times: [0, 0.3, 0.7, 1], repeat: Infinity },
                 rotateZ: { duration: 25, ease: 'easeInOut', repeat: Infinity }
               }}
@@ -211,8 +180,6 @@ export default function Hero() {
         
         {/* Particle Dissolve Layer (Scroll) */}
         <div className="hero-particles" />
-        {/* Dynamic Light Reflection (Mouse tracking) */}
-        <div className="hero-light-reflection" />
         {/* Cinematic Spotlight (Opening sequence) */}
         <div className="hero-spotlight" />
         {/* Static CSS Effects */}

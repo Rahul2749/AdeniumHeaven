@@ -31,10 +31,7 @@
 .hero-image-wrap {
   position: absolute;
   inset: -5%; /* Slight bleed for deep zoom */
-  will-change: transform, filter;
-  /* Mask for the focus breathing / particles dissolve later */
-  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  will-change: transform;
 }
 
 .hero-slide {
@@ -54,20 +51,6 @@
   pointer-events: none;
 }
 
-/* Dynamic Silk Light Reflection (Mouse Tracking) */
-.hero-light-reflection {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle 800px at var(--mouse-x) var(--mouse-y),
-    rgba(255, 255, 255, 0.08) 0%,
-    transparent 100%
-  );
-  mix-blend-mode: overlay;
-  pointer-events: none;
-  z-index: 2;
-  will-change: background;
-}
 
 /* Premium Film Grain */
 .hero-noise {
