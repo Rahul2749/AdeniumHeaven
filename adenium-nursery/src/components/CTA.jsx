@@ -20,8 +20,8 @@ export default function CTA() {
     <section id="contact" className="cta-section" ref={ref} aria-label="Contact and newsletter signup">
       <div className="cta-inner" style={{ position: 'relative', overflow: 'hidden', zIndex: 1 }}>
         {/* Luxury Botanical Artwork inside the gradient box */}
-        <LuxuryDecor type="petal" variant={3} left="-2%" top="-2%" opacity={0.18} scale={0.8} rotation={25} blur={1} parallaxSpeed={0.02} zIndex={0} className="desktop-only" />
-        <LuxuryDecor type="flower" variant={2} right="-5%" bottom="-5%" opacity={0.18} scale={1.5} rotation={-15} blur={1} parallaxSpeed={0.03} zIndex={0} />
+        <LuxuryDecor type="petal" variant={3} left="-2%" top="-2%" opacity={0.18} scale={0.8} rotation={25} parallaxSpeed={0.02} zIndex={0} />
+        <LuxuryDecor type="flower" variant={2} right="-5%" bottom="-5%" opacity={0.18} scale={1.5} rotation={-15} parallaxSpeed={0.03} zIndex={0} />
         <Reveal className="cta-content" delay={0.1} stagger={0.1}>
           <div className="section-eyebrow">Join Our Community</div>
           <h2 className="cta-headline">

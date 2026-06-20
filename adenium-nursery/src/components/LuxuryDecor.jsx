@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
 import './LuxuryDecor.css'
 
 import petal1 from '../assets/processed/petal_1.png'
@@ -25,35 +26,27 @@ export default function LuxuryDecor({
   opacity = 0.05, 
   scale = 1, 
   rotation = 0,
-  blur = 0,
   zIndex,
   parallaxSpeed = 0.03,
   className = ''
 }) {
   const elementRef = useRef(null)
   
-  // High-performance rAF parallax scroll
+  // High-performance parallax perfectly synced with Lenis via GSAP ticker
   useEffect(() => {
-    let animationFrameId
     const el = elementRef.current
     if (!el) return
 
-    const updateParallax = () => {
-      const scrollY = window.scrollY
-      // The user requested: max 15px movement. We can clamp it if needed, 
-      // but standard parallax is fine as long as the multiplier is extremely small (0.01 - 0.03).
-      const yMove = scrollY * parallaxSpeed
-      
-      // We only animate the translateY via JS, and we let CSS handle the rotation and scale via the luxuryDrift animation if we combine them.
-      // Actually, since CSS keyframes override inline transforms if they use `transform`, we should use CSS Custom Properties for the scroll offset.
+    const onTick = () => {
+      // Lenis overrides window scrolling, but GSAP ticker perfectly tracks the frame
+      const yMove = window.scrollY * parallaxSpeed
       el.style.setProperty('--scroll-y', `${yMove}px`)
-      
-      animationFrameId = requestAnimationFrame(updateParallax)
     }
 
-    updateParallax()
+    gsap.ticker.add(onTick)
+    onTick() // Initial set
 
-    return () => cancelAnimationFrame(animationFrameId)
+    return () => gsap.ticker.remove(onTick)
   }, [parallaxSpeed])
 
   const assetList = assets[type] || assets.petal
@@ -65,8 +58,7 @@ export default function LuxuryDecor({
     zIndex,
     '--base-opacity': opacity,
     '--base-scale': scale,
-    '--base-rotation': `${rotation}deg`,
-    filter: blur > 0 ? `blur(${blur}px)` : undefined
+    '--base-rotation': `${rotation}deg`
   }
 
   return (

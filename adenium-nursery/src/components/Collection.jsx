@@ -119,31 +119,9 @@ gsap.registerPlugin(ScrollTrigger)
 function PlantCard({ plant, index }) {
   const ref = useRef(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(ref.current,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1, y: 0,
-          duration: 0.8,
-          delay: index * 0.08,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: ref.current,
-            start: 'top 88%',
-            toggleActions: 'play none none none',
-          },
-        }
-      )
-    })
-    return () => ctx.revert()
-  }, [index])
-
   return (
     <article ref={ref} className="plant-card" style={{ opacity: 0 }} aria-label={`${plant.name} — ${plant.price}`}>
       <div className="card-visual" style={{ background: plant.bg, position: 'relative', overflow: 'hidden' }}>
-        {/* Subtle botanical watermark inside card */}
-        <LuxuryDecor type="petal" variant={(index % 4) + 1} left="5%" top="5%" opacity={0.16} scale={1.2} rotation={25 * index} blur={0} zIndex={1} parallaxSpeed={0.01} />
         <img src={plant.image} alt={`${plant.name} — ${plant.species} desert rose plant, ${plant.desc}`} className="plant-image" loading="lazy" decoding="async" style={{ position: 'relative', zIndex: 2 }} />
         <div className="card-tag" style={{ background: tagColors[plant.tagColor], position: 'relative', zIndex: 3 }}>
           {plant.tag}
@@ -175,6 +153,20 @@ export default function Collection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      gsap.fromTo('.plant-card',
+        { opacity: 0, y: 80, scale: 0.96 },
+        {
+          opacity: 1, y: 0, scale: 1,
+          duration: 1.2,
+          stagger: 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.collection-grid',
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        }
+      )
       gsap.fromTo('.collection-header',
         { opacity: 0, y: 40 },
         {
@@ -193,8 +185,10 @@ export default function Collection() {
   }, [])
 
   return (
-    <section id="collection" className="collection" ref={sectionRef} aria-label="Adenium plant collection" style={{ position: 'relative' }}>
-      {/* Decorative elements are now strictly integrated into the product cards */}
+    <section id="collection" className="collection" ref={sectionRef} aria-label="Adenium plant collection" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Subtle header artwork */}
+      <LuxuryDecor type="petal" variant={2} left="15%" top="5%" opacity={0.16} scale={0.7} rotation={-15} parallaxSpeed={0.03} />
+      <LuxuryDecor type="petal" variant={3} right="10%" top="8%" opacity={0.14} scale={0.5} rotation={35} parallaxSpeed={0.04} />
 
       <div className="collection-header" style={{ opacity: 0 }}>
         <div className="section-eyebrow">The Collection</div>

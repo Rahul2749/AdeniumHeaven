@@ -100,10 +100,11 @@ export default function Process() {
   }, [])
 
   return (
-    <section id="process" className="process" ref={sectionRef} aria-label="How ordering works" style={{ position: 'relative' }}>
-      {/* Subtle luxury decor */}
-      <LuxuryDecor type="flower" variant={3} right="-5%" top="10%" opacity={0.02} scale={1.2} rotation={15} blur={4} parallaxSpeed={0.01} className="desktop-only" />
-      <LuxuryDecor type="petal" variant={4} left="5%" bottom="15%" opacity={0.03} scale={0.6} rotation={-20} parallaxSpeed={0.03} className="tablet-hide" />
+    <section id="process" className="process" ref={sectionRef} aria-label="Our shipping and preparation process" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Luxury Botanical Artwork */}
+      <LuxuryDecor type="flower" variant={3} right="-5%" top="10%" opacity={0.12} scale={1.2} rotation={15} blur={1} parallaxSpeed={0.01} />
+      <LuxuryDecor type="petal" variant={1} left="8%" top="35%" opacity={0.15} scale={0.8} rotation={-20} parallaxSpeed={0.03} />
+      <LuxuryDecor type="petal" variant={4} right="25%" bottom="15%" opacity={0.12} scale={0.6} rotation={45} parallaxSpeed={0.02} />
 
       <div className="process-inner">
         <div className="process-header" style={{ opacity: 0 }}>

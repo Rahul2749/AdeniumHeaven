@@ -84,10 +84,10 @@ export default function About() {
     <section id="about" className="about" ref={sectionRef} aria-label="About Adenium Heaven nursery">
       {/* Luxury Botanical Artwork */}
       {/* Bloom behind heading area */}
-      <LuxuryDecor type="flower" variant={2} right="-5%" top="15%" opacity={0.15} scale={2.5} rotation={-15} blur={1} parallaxSpeed={0.02} zIndex={0} className="desktop-only" />
+      <LuxuryDecor type="flower" variant={2} right="-5%" top="15%" opacity={0.15} scale={2.5} rotation={-15} parallaxSpeed={0.02} zIndex={0} />
       {/* Petals behind image cards */}
-      <LuxuryDecor type="petal" variant={4} left="5%" top="25%" opacity={0.18} scale={1.0} rotation={30} parallaxSpeed={0.04} zIndex={0} blur={0} />
-      <LuxuryDecor type="petal" variant={2} left="12%" bottom="10%" opacity={0.18} scale={0.8} rotation={-40} parallaxSpeed={0.03} zIndex={0} className="tablet-hide" blur={0} />
+      <LuxuryDecor type="petal" variant={4} left="5%" top="25%" opacity={0.18} scale={1.0} rotation={30} parallaxSpeed={0.04} zIndex={0} />
+      <LuxuryDecor type="petal" variant={2} left="12%" bottom="10%" opacity={0.18} scale={0.8} rotation={-40} parallaxSpeed={0.03} zIndex={0} />
 
       <div className="about-container">
         <div className="about-left" style={{ opacity: 0 }}>

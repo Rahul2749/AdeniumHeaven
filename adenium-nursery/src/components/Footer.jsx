@@ -5,7 +5,7 @@ import LuxuryDecor from './LuxuryDecor'
 export default function Footer() {
   return (
     <footer className="footer" aria-label="Site footer" style={{ position: 'relative', overflow: 'hidden' }}>
-      <LuxuryDecor type="flower" variant={2} right="-10%" bottom="-20%" opacity={0.15} scale={1.8} rotation={25} blur={1} parallaxSpeed={0.01} className="desktop-only" />
+      <LuxuryDecor type="flower" variant={2} right="-10%" bottom="-20%" opacity={0.15} scale={1.8} rotation={25} parallaxSpeed={0.01} />
       <div className="footer-inner">
         <div className="footer-top">
           <div className="footer-brand">

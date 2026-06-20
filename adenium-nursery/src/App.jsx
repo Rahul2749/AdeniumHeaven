@@ -21,13 +21,14 @@ export default function App() {
   const lenisRef = useRef(null)
 
   useEffect(() => {
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual'
+    // Force scroll to top on refresh
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual'
     }
     window.scrollTo(0, 0)
 
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.8,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smooth: true,
       smoothTouch: false,
