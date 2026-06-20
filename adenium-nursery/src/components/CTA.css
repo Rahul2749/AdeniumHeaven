@@ -9,7 +9,7 @@
   border-radius: 24px;
   padding: 5rem 4rem;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto;
   gap: 4rem;
   align-items: center;
   position: relative;

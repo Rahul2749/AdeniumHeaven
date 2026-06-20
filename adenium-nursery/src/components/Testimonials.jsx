@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './Testimonials.css'
+import LuxuryDecor from './LuxuryDecor'
 
 const reviews = [
   {
@@ -76,7 +77,9 @@ export default function Testimonials() {
         </div>
 
         <div className="testimonials-content">
-          <div className="testimonial-main">
+          <div className="testimonial-main" style={{ position: 'relative', overflow: 'hidden', zIndex: 1 }}>
+            {/* Faint botanical watermark */}
+            <LuxuryDecor type="flower" variant={1} right="-5%" top="-15%" opacity={0.12} scale={1.5} rotation={15} blur={1} zIndex={-1} parallaxSpeed={0.01} />
             <div className="quote-mark">"</div>
             <div className="testimonial-text" key={active} aria-live="polite" aria-atomic="true">
               {review.text}

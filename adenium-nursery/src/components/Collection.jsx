@@ -10,6 +10,7 @@ import giantCaudexImg from '../assets/giant_caudex_bonsai.png'
 import cobaltSetImg from '../assets/cobalt_set.png'
 import bonsaiImg from '../assets/bonsai.png'
 import goldenSunsetImg from '../assets/golden_sunset.png'
+import LuxuryDecor from './LuxuryDecor'
 
 const plants = [
   {
@@ -140,9 +141,11 @@ function PlantCard({ plant, index }) {
 
   return (
     <article ref={ref} className="plant-card" style={{ opacity: 0 }} aria-label={`${plant.name} — ${plant.price}`}>
-      <div className="card-visual" style={{ background: plant.bg }}>
-        <img src={plant.image} alt={`${plant.name} — ${plant.species} desert rose plant, ${plant.desc}`} className="plant-image" loading="lazy" decoding="async" />
-        <div className="card-tag" style={{ background: tagColors[plant.tagColor] }}>
+      <div className="card-visual" style={{ background: plant.bg, position: 'relative', overflow: 'hidden' }}>
+        {/* Subtle botanical watermark inside card */}
+        <LuxuryDecor type="petal" variant={(index % 4) + 1} left="5%" top="5%" opacity={0.16} scale={1.2} rotation={25 * index} blur={0} zIndex={1} parallaxSpeed={0.01} />
+        <img src={plant.image} alt={`${plant.name} — ${plant.species} desert rose plant, ${plant.desc}`} className="plant-image" loading="lazy" decoding="async" style={{ position: 'relative', zIndex: 2 }} />
+        <div className="card-tag" style={{ background: tagColors[plant.tagColor], position: 'relative', zIndex: 3 }}>
           {plant.tag}
         </div>
       </div>
@@ -190,7 +193,9 @@ export default function Collection() {
   }, [])
 
   return (
-    <section id="collection" className="collection" ref={sectionRef} aria-label="Adenium plant collection">
+    <section id="collection" className="collection" ref={sectionRef} aria-label="Adenium plant collection" style={{ position: 'relative' }}>
+      {/* Decorative elements are now strictly integrated into the product cards */}
+
       <div className="collection-header" style={{ opacity: 0 }}>
         <div className="section-eyebrow">The Collection</div>
         <h2 className="collection-headline">

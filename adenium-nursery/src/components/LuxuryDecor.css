@@ -1,0 +1,49 @@
+.luxury-decor {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+  /* Base state before animation */
+  opacity: var(--base-opacity);
+  transform: translate3d(0, var(--scroll-y, 0px), 0) scale(var(--base-scale)) rotate(var(--base-rotation));
+  animation: luxuryDrift 12s ease-in-out infinite alternate;
+}
+
+.luxury-decor-img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  object-fit: contain;
+}
+
+/* Subtle, organic movement requested by user */
+@keyframes luxuryDrift {
+  0% {
+    transform: translate3d(0, var(--scroll-y, 0px), 0) scale(var(--base-scale)) rotate(var(--base-rotation));
+    opacity: var(--base-opacity);
+  }
+
+  50% {
+    /* Move up max 3px, rotate +2deg */
+    transform: translate3d(0, calc(var(--scroll-y, 0px) - 3px), 0) scale(var(--base-scale)) rotate(calc(var(--base-rotation) + 2deg));
+    opacity: calc(var(--base-opacity) + 0.01);
+  }
+
+  100% {
+    transform: translate3d(0, var(--scroll-y, 0px), 0) scale(var(--base-scale)) rotate(var(--base-rotation));
+    opacity: var(--base-opacity);
+  }
+}
+
+/* Responsive reduction */
+@media (max-width: 1024px) {
+  .luxury-decor.desktop-only {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .luxury-decor.tablet-hide {
+    display: none !important;
+  }
+}

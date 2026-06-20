@@ -1,6 +1,7 @@
 .about {
   padding: 8rem 3rem;
   overflow: hidden;
+  position: relative;
 }
 
 .about-container {

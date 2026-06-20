@@ -54,7 +54,6 @@ export default function App() {
       <Navbar />
       <main id="main-content" aria-label="Main content">
         <Hero />
-        <Marquee />
         <About />
         <Collection />
         <Process />

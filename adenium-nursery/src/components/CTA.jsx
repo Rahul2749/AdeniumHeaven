@@ -1,21 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import './CTA.css'
+import LuxuryDecor from './LuxuryDecor'
+import Reveal from './Reveal'
 
 export default function CTA() {
   const ref = useRef(null)
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) entry.target.classList.add('in-view')
-      },
-      { threshold: 0.2 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -26,25 +17,12 @@ export default function CTA() {
   }
 
   return (
-    <section id="contact" className="cta-section section-reveal" ref={ref} aria-label="Contact and newsletter signup">
-      <div className="cta-inner">
-        <div className="cta-decoration">
-          <div className="cta-flower">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div
-                key={i}
-                className="cta-petal"
-                style={{
-                  transform: `rotate(${i * 45}deg) translateY(-50px)`,
-                  animationDelay: `${i * 0.1}s`,
-                }}
-              />
-            ))}
-            <div className="cta-center" />
-          </div>
-        </div>
-
-        <div className="cta-content">
+    <section id="contact" className="cta-section" ref={ref} aria-label="Contact and newsletter signup">
+      <div className="cta-inner" style={{ position: 'relative', overflow: 'hidden', zIndex: 1 }}>
+        {/* Luxury Botanical Artwork inside the gradient box */}
+        <LuxuryDecor type="petal" variant={3} left="-2%" top="-2%" opacity={0.18} scale={0.8} rotation={25} blur={1} parallaxSpeed={0.02} zIndex={0} className="desktop-only" />
+        <LuxuryDecor type="flower" variant={2} right="-5%" bottom="-5%" opacity={0.18} scale={1.5} rotation={-15} blur={1} parallaxSpeed={0.03} zIndex={0} />
+        <Reveal className="cta-content" delay={0.1} stagger={0.1}>
           <div className="section-eyebrow">Join Our Community</div>
           <h2 className="cta-headline">
             Be the First to Know<br />
@@ -85,9 +63,9 @@ export default function CTA() {
             <span>✦ Unsubscribe anytime</span>
             <span>✦ Free care guides</span>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="cta-contact">
+        <Reveal type="button" className="cta-contact" delay={0.3}>
           <div className="contact-label">Or reach us directly</div>
           <a href="https://wa.me/917775077637" className="whatsapp-btn" data-cursor>
             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -111,7 +89,7 @@ export default function CTA() {
               <span>Open Mon–Sat, 9 AM – 6 PM</span>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './Process.css'
+import LuxuryDecor from './LuxuryDecor'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -99,7 +100,11 @@ export default function Process() {
   }, [])
 
   return (
-    <section id="process" className="process" ref={sectionRef} aria-label="How ordering works">
+    <section id="process" className="process" ref={sectionRef} aria-label="How ordering works" style={{ position: 'relative' }}>
+      {/* Subtle luxury decor */}
+      <LuxuryDecor type="flower" variant={3} right="-5%" top="10%" opacity={0.02} scale={1.2} rotation={15} blur={4} parallaxSpeed={0.01} className="desktop-only" />
+      <LuxuryDecor type="petal" variant={4} left="5%" bottom="15%" opacity={0.03} scale={0.6} rotation={-20} parallaxSpeed={0.03} className="tablet-hide" />
+
       <div className="process-inner">
         <div className="process-header" style={{ opacity: 0 }}>
           <div className="section-eyebrow">How It Works</div>
