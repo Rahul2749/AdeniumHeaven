@@ -1,4 +1,4 @@
-import LogoMark from './LogoMark'
+import logoWhiteBg from '../assets/logo_whitebg.webp'
 import './Footer.css'
 import LuxuryDecor from './LuxuryDecor'
 
@@ -10,8 +10,7 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <div className="footer-logo">
-              <LogoMark className="logo-mark-svg" />
-              <span>Adenium <em>Heaven</em></span>
+              <img src={logoWhiteBg} alt="Adenium Heaven Logo" className="footer-logo-image" />
             </div>
             <p className="footer-tagline">
               Hand-cultivated desert roses.<br />

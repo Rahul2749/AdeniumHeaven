@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import LogoMark from './LogoMark'
+import logoWithoutBg from '../assets/logo_withoutbg.png'
 import './Navbar.css'
 
 const links = ['Collection', 'About', 'Process', 'Contact']
@@ -25,8 +25,7 @@ export default function Navbar() {
       <a href="#main-content" className="skip-link">Skip to content</a>
       <div className="navbar-inner">
         <div className="navbar-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} role="button" tabIndex={0} aria-label="Adenium Heaven — Back to top">
-          <LogoMark className="logo-mark-svg" />
-          <span className="logo-text">Adenium <em>Heaven</em></span>
+          <img src={logoWithoutBg} alt="Adenium Heaven Logo" className="logo-image" />
         </div>
 
         <nav className="navbar-links" aria-label="Main navigation">
