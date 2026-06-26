@@ -1,0 +1,262 @@
+.bonsai-techniques {
+  padding: 8rem 3rem;
+  background-color: var(--alabaster);
+  position: relative;
+  overflow: hidden;
+}
+
+.bonsai-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.bonsai-header {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.bonsai-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: var(--deep-ink);
+  line-height: 1.1;
+  margin: 1rem 0;
+}
+
+.bonsai-headline em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--adenium-pink);
+}
+
+.bonsai-subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--deep-ink);
+  opacity: 0.7;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Timeline Layout */
+.bonsai-timeline {
+  position: relative;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: rgba(0, 0, 0, 0.08);
+  transform: translateX(-50%);
+}
+
+.bonsai-item {
+  position: relative;
+  margin-bottom: 5rem;
+  width: 100%;
+  display: flex;
+  opacity: 0;
+}
+
+.bonsai-item:last-child {
+  margin-bottom: 0;
+}
+
+.bonsai-item-content {
+  width: calc(50% - 40px);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bonsai-item:hover .bonsai-item-content {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+}
+
+.align-left {
+  justify-content: flex-start;
+}
+
+.align-right {
+  justify-content: flex-end;
+}
+
+/* Image inside card */
+.bonsai-item-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #f5f5f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bonsai-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1.2rem;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bonsai-item:hover .bonsai-item-image img {
+  transform: scale(1.04);
+}
+
+.bonsai-item-text {
+  padding: 2rem;
+}
+
+/* The node on the timeline line */
+.bonsai-item-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 3px solid var(--adenium-pink);
+  border-radius: 50%;
+  z-index: 2;
+  transition: transform 0.4s ease, background 0.4s ease;
+}
+
+.bonsai-item:hover .bonsai-item-node {
+  transform: translate(-50%, -50%) scale(1.3);
+  background: var(--adenium-pink);
+}
+
+/* Connectors from card to line */
+.bonsai-item-content::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.08);
+  transform: translateY(-50%);
+}
+
+.align-left .bonsai-item-content::before {
+  right: -40px;
+}
+
+.align-right .bonsai-item-content::before {
+  left: -40px;
+}
+
+/* Title row with timeline badge */
+.bonsai-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.bonsai-item-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--deep-ink);
+  margin: 0;
+}
+
+.bonsai-item-num {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--adenium-pink);
+  vertical-align: middle;
+  margin-right: 0.4rem;
+}
+
+/* Timeline badge */
+.bonsai-timeline-badge {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--adenium-pink);
+  background: rgba(216, 27, 96, 0.08);
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.bonsai-item-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--deep-ink);
+  opacity: 0.75;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+  .bonsai-techniques {
+    padding: 5rem 1.5rem;
+  }
+  
+  .bonsai-header {
+    margin-bottom: 4rem;
+  }
+
+  .timeline-line {
+    left: 20px;
+    transform: none;
+  }
+
+  .bonsai-item {
+    justify-content: flex-end;
+  }
+
+  .bonsai-item-content {
+    width: calc(100% - 50px);
+  }
+
+  .bonsai-item-node {
+    left: 20px;
+    transform: translate(-50%, -50%);
+  }
+
+  .bonsai-item:hover .bonsai-item-node {
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+
+  .bonsai-item-content::before {
+    left: -30px !important;
+    right: auto !important;
+    width: 30px;
+  }
+
+  .bonsai-item-image {
+    height: 180px;
+  }
+  .bonsai-item-image img {
+    padding: 0.8rem;
+  }
+
+  .bonsai-item-text {
+    padding: 1.5rem;
+  }
+
+  .bonsai-item-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

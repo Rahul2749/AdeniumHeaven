@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import logoWithoutBg from '../assets/logo_withoutbg.png'
 import './Navbar.css'
 
-const links = ['Collection', 'About', 'Process', 'Contact']
+const links = ['Collection', 'About', 'Process', 'Care', 'Contact']
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)

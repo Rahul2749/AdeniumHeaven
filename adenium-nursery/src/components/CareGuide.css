@@ -1,0 +1,170 @@
+.care-guide {
+  padding: 8rem 3rem;
+  background-color: var(--alabaster);
+  position: relative;
+  overflow: hidden;
+}
+
+.care-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Banner */
+.care-banner {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21 / 9;
+  min-height: 320px;
+  max-height: 480px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 4rem;
+}
+
+.care-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.care-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, var(--alabaster) 100%);
+}
+
+/* Header */
+.care-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.care-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: var(--deep-ink);
+  line-height: 1.1;
+  margin: 1rem 0;
+}
+
+.care-headline em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--adenium-pink);
+}
+
+.care-subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--deep-ink);
+  opacity: 0.7;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Grid */
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.care-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.care-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.care-card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.05));
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.care-card:hover .care-card-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.care-card-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--deep-ink);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.care-card-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--deep-ink);
+  opacity: 0.75;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* Pro Tip */
+.care-card-tip {
+  margin-top: auto;
+  padding: 1rem 1.2rem;
+  background: rgba(216, 27, 96, 0.04);
+  border-left: 3px solid var(--adenium-pink);
+  border-radius: 0 8px 8px 0;
+  width: 100%;
+}
+
+.tip-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--adenium-pink);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.tip-text {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--deep-ink);
+  opacity: 0.7;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .care-guide {
+    padding: 5rem 1.5rem;
+  }
+  .care-header {
+    margin-bottom: 3rem;
+  }
+  .care-grid {
+    grid-template-columns: 1fr;
+  }
+  .care-banner {
+    height: auto;
+    aspect-ratio: 16 / 10;
+    min-height: 220px;
+    margin-bottom: 3rem;
+  }
+}

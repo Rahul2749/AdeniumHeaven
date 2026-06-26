@@ -8,8 +8,12 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Marquee from './components/Marquee'
 import About from './components/About'
+import AdeniumTypes from './components/AdeniumTypes'
 import Collection from './components/Collection'
 import Process from './components/Process'
+import CareGuide from './components/CareGuide'
+import GraftingMethods from './components/GraftingMethods'
+import BonsaiTechniques from './components/BonsaiTechniques'
 import Testimonials from './components/Testimonials'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
@@ -56,8 +60,12 @@ export default function App() {
       <main id="main-content" aria-label="Main content">
         <Hero />
         <About />
+        <AdeniumTypes />
         <Collection />
         <Process />
+        <CareGuide />
+        <GraftingMethods />
+        <BonsaiTechniques />
         <Testimonials />
         <CTA />
       </main>
