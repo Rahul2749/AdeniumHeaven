@@ -208,7 +208,7 @@ export default function Hero() {
         </h1>
 
         <p className="hero-sub">
-          Hand-cultivated Adenium specimens — where ceramic artistry meets the ancient beauty of desert rose. Discover our rare hybrids and premium collections.
+          Buy premium hand-cultivated Adenium plants online. Where ceramic artistry meets the ancient beauty of the Desert Rose. Discover rare Thai grafted hybrids and exquisite collections.
         </p>
 
         <div className="hero-actions">

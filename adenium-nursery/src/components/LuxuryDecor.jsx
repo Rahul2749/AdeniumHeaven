@@ -68,7 +68,7 @@ export default function LuxuryDecor({
       style={style}
       aria-hidden="true"
     >
-      <img src={imageSrc} alt="" className="luxury-decor-img" loading="lazy" />
+      <img src={imageSrc} alt="Decorative adenium plant element" className="luxury-decor-img" loading="lazy" />
     </div>
   )
 }
